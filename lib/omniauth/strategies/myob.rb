@@ -12,24 +12,30 @@ module OmniAuth
         :token_url     => '/oauth2/v1/authorize',
       }
 
-      uid {
-        raw_info[0]['Id']
-      }
+      uid { raw_info[0]['Id'] }
+
+      info do
+        {
+          'name'     => raw_info[0]['Name'].to_s,
+          'uri'      => raw_info[0]['Uri'].to_s,
+        }
+      end
+
+      extra do
+        { :raw_info => raw_info }
+      end
 
       def raw_info
-        begin
-          @raw_info ||= MultiJson.load(access_token.get('https://api.myob.com/accountright/', {:headers => headers}).body)
-        rescue => e
-          Raven.capture_exception(e)
-        end
+        @raw_info ||= MultiJson.load(access_token.get('https://api.myob.com/accountright/', {:headers => headers}).body)
       end
 
       private
 
       def headers
-        {
+        @headers ||= {
           'x-myobapi-key'     => options.client_id,
           'x-myobapi-cftoken' => '',
+          'x-myobapi-version' => 'v2',
         }
       end
 
