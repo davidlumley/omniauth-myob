@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Register on Intuit's [developer site](http://developer.myob.com/) and create an application.
+Register on MYOB's [developer site](http://developer.myob.com/) and create an application.
 
 For a Rack application:
 
