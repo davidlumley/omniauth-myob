@@ -46,6 +46,3 @@ For a Rails application:
 ## Todo
 
 * Testing
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/davidlumley/omniauth-myob/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
