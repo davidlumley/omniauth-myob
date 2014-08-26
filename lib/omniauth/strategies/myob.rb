@@ -12,6 +12,10 @@ module OmniAuth
         :token_url     => '/oauth2/v1/authorize',
       }
 
+      option :authorize_params, {
+        'scope' => 'CompanyFile'
+      }
+
       uid { raw_info[0]['Id'] }
 
       info do
